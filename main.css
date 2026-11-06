@@ -1,0 +1,1336 @@
+/* =====================================================
+   1. KLEURVARIABELEN
+   ===================================================== */
+
+:root {
+  --void-black: #080808;
+  --bone: #f0efe7;
+  --acid-lime: #c8ff00;
+  --raw-silver: #aaaaaa;
+  --dark-grey: #292929;
+}
+
+
+/* =====================================================
+   2. ALGEMENE RESET
+   ===================================================== */
+
+* {
+  box-sizing: border-box;
+}
+
+body,
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+body {
+  background-color: var(--void-black);
+  color: var(--bone);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+
+/* =====================================================
+   3. HEADER EN NAVIGATIE
+   ===================================================== */
+
+.header {
+  position: relative;
+  z-index: 100;
+
+  width: 100%;
+  height: 58px;
+
+  padding: 0 35px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background-color: var(--void-black);
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+.header>.a {
+  font-family: Impact, "Arial Black", sans-serif;
+
+  font-size: 13px;
+  letter-spacing: 1.5px;
+
+  color: var(--bone);
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+
+  gap: 35px;
+}
+
+/* Alle links in de navigatie. */
+.navbar a {
+  position: relative;
+
+  font-size: 9px;
+  font-weight: bold;
+
+  letter-spacing: 1.5px;
+
+  color: #8b8b8b;
+
+  transition: color 0.2s ease;
+}
+
+/* Kleur veranderen wanneer de muis boven een link staat. */
+.navbar a:hover {
+  color: var(--acid-lime);
+}
+
+/* Onderlijning onder de navigatielinks. */
+.navbar a::after {
+  content: "";
+
+  position: absolute;
+
+  bottom: -5px;
+  left: 0;
+
+  width: 0;
+  height: 1px;
+
+  background-color: var(--acid-lime);
+
+  transition: width 0.2s ease;
+}
+
+.navbar a:hover::after {
+  width: 100%;
+}
+
+/* De laatste navigatielink krijgt een lichtere kleur. */
+.navbar a:last-child {
+  color: var(--bone);
+}
+
+
+/* =====================================================
+   4. EERSTE SECTIE – TOO LOUD IS A SETTING
+   AFBEELDING: assets/headphones.avif
+   ===================================================== */
+
+main>section:first-child {
+  position: relative;
+
+  min-height: calc(100vh - 58px);
+
+  padding: 85px 55px 60px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  overflow: hidden;
+
+  background-color: var(--void-black);
+
+  background-image:
+    linear-gradient(90deg,
+      rgba(0, 0, 0, 0.95) 0%,
+      rgba(0, 0, 0, 0.72) 42%,
+      rgba(0, 0, 0, 0.25) 70%,
+      rgba(0, 0, 0, 0.65) 100%),
+    url("assets/headphones.avif");
+
+  background-size: cover;
+  background-position: center right;
+  background-repeat: no-repeat;
+}
+
+
+/* Productinformatie rechtsboven. */
+main>section:first-child>p:first-child {
+  position: absolute;
+
+  top: 25px;
+  right: 35px;
+
+  text-align: right;
+
+  color: #777777;
+
+  font-family: "Courier New", monospace;
+
+  font-size: 7px;
+  line-height: 1.7;
+  letter-spacing: 1px;
+}
+
+
+/* Kleine productomschrijving boven de titel. */
+main>section:first-child>p:nth-of-type(2) {
+  margin-bottom: 12px;
+
+  color: #777777;
+
+  font-family: "Courier New", monospace;
+
+  font-size: 8px;
+  letter-spacing: 1.5px;
+
+  text-transform: uppercase;
+}
+
+
+/* Grote hero-titel. */
+main>section:first-child h1 {
+  position: relative;
+  z-index: 2;
+
+  max-width: 950px;
+
+  margin-bottom: 45px;
+
+  font-family: Impact, "Arial Black", sans-serif;
+
+  font-size: clamp(5rem, 10vw, 10rem);
+
+  line-height: 0.82;
+  letter-spacing: -2px;
+
+  text-transform: uppercase;
+
+  color: var(--bone);
+}
+
+
+/* Het groene gedeelte van de titel. */
+main>section:first-child h1 em {
+  color: var(--acid-lime);
+  font-style: italic;
+}
+
+
+/* Prijs en shopknop naast elkaar. */
+main>section:first-child>div {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  align-items: flex-end;
+
+  gap: 45px;
+}
+
+
+/* Prijsinformatie onder elkaar. */
+main>section:first-child>div>div {
+  display: flex;
+  flex-direction: column;
+
+  gap: 4px;
+}
+
+
+/* Kleine tekst boven de prijs. */
+main>section:first-child>div>div p:first-child {
+  color: #888888;
+
+  font-family: "Courier New", monospace;
+
+  font-size: 7px;
+  letter-spacing: 1px;
+
+  text-transform: uppercase;
+}
+
+
+/* De prijs. */
+main>section:first-child>div>div p:last-child {
+  color: var(--bone);
+
+  font-family: Impact, "Arial Black", sans-serif;
+
+  font-size: 28px;
+}
+
+
+/* Eerste SHOP-knop. */
+main>section:first-child>div>a {
+  min-width: 140px;
+  height: 52px;
+
+  padding: 0 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 10px;
+
+  background-color: var(--acid-lime);
+
+  color: var(--void-black);
+
+  font-size: 11px;
+  font-weight: 900;
+
+  letter-spacing: 0.8px;
+
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+main>section:first-child>div>a:hover {
+  background-color: var(--bone);
+  transform: translateY(-2px);
+}
+
+main>section:first-child>div>a span {
+  font-size: 19px;
+}
+
+
+/* =====================================================
+   5. TWEEDE SECTIE – NO WIRES
+   ===================================================== */
+
+#sound {
+  min-height: 560px;
+
+  padding: 90px 55px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  background-color: var(--bone);
+
+  color: var(--void-black);
+}
+
+#sound h2 {
+  max-width: 800px;
+
+  font-family: Impact, "Arial Black", sans-serif;
+
+  font-size: clamp(4rem, 7vw, 7.5rem);
+
+  line-height: 0.9;
+  letter-spacing: -1px;
+
+  text-transform: uppercase;
+}
+
+#sound p {
+  margin-top: 35px;
+
+  color: #888888;
+
+  font-family: "Courier New", monospace;
+
+  font-size: 7px;
+  letter-spacing: 1px;
+}
+
+
+/* =====================================================
+   6. PRODUCT PRESENTATIE – VOID//01
+   AFBEELDING: assets/headphones2.avif
+   ===================================================== */
+
+.product-showcase {
+  min-height: 500px;
+
+  padding: 35px 55px 50px;
+
+  background-color: var(--void-black);
+
+  color: var(--bone);
+}
+
+
+/* Kleine tekst boven de productpresentatie. */
+.product-showcase__topline {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding-bottom: 15px;
+
+  color: #777777;
+
+  font-family: "Courier New", monospace;
+
+  font-size: 8px;
+  letter-spacing: 1.5px;
+}
+
+
+/* Grote productafbeelding. */
+.product-showcase__stage {
+  position: relative;
+
+  min-height: 400px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+
+  background-color: #050505;
+
+  background-image:
+    linear-gradient(90deg,
+      rgba(0, 0, 0, 0.85),
+      rgba(0, 0, 0, 0.25),
+      rgba(0, 0, 0, 0.85)),
+    url("assets/headphones2.avif");
+
+  background-size: cover;
+  background-position: center 55%;
+  background-repeat: no-repeat;
+}
+
+
+/* Centrale productnaam. */
+.product-showcase__mark {
+  position: relative;
+  z-index: 2;
+
+  color: rgba(240, 239, 231, 0.25);
+
+  font-family: Impact, "Arial Black", sans-serif;
+
+  font-size: clamp(3rem, 8vw, 7rem);
+
+  letter-spacing: -3px;
+}
+
+
+/* Kleine productinformatie. */
+.product-callout {
+  position: absolute;
+  z-index: 3;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 6px;
+
+  color: var(--acid-lime);
+
+  font-family: "Courier New", monospace;
+
+  font-size: 8px;
+  letter-spacing: 1px;
+}
+
+.product-callout span {
+  color: #777777;
+}
+
+.product-callout strong {
+  font-size: 9px;
+}
+
+.product-callout--top-left {
+  top: 12%;
+  left: 2%;
+}
+
+.product-callout--top-right {
+  top: 12%;
+  right: 2%;
+
+  text-align: right;
+}
+
+.product-callout--bottom-left {
+  bottom: 12%;
+  left: 2%;
+}
+
+.product-callout--bottom-right {
+  bottom: 12%;
+  right: 2%;
+
+  text-align: right;
+}
+
+
+/* =====================================================
+   7. TECHNISCHE SPECIFICATIES
+   ===================================================== */
+
+.specifications {
+  padding: 35px 55px 50px;
+
+  background-color: #080808;
+
+  color: var(--bone);
+}
+
+
+/* Koptekst boven de specificaties. */
+.specifications__heading {
+  display: flex;
+  justify-content: space-between;
+
+  padding-bottom: 20px;
+
+  color: #777777;
+
+  font-family: "Courier New", monospace;
+
+  font-size: 8px;
+  letter-spacing: 1px;
+}
+
+
+/* Iedere afzonderlijke specificatieregel. */
+.specification-row {
+  display: grid;
+
+  grid-template-columns:
+    35px minmax(200px, 0.9fr) minmax(200px, 1fr);
+
+  align-items: center;
+
+  gap: 20px;
+
+  min-height: 65px;
+
+  border-top: 1px solid #292929;
+}
+
+
+/* Nummer links van de specificatie. */
+.specification-number {
+  color: #666666;
+
+  font-family: "Courier New", monospace;
+
+  font-size: 9px;
+}
+
+
+/* Titel van de specificatie. */
+.specification-row h3 {
+  font-family: Impact, "Arial Black", sans-serif;
+
+  font-size: 14px;
+  letter-spacing: 0.5px;
+}
+
+
+/* Beschrijving van de specificatie. */
+.specification-row p {
+  color: #929292;
+
+  font-size: 10px;
+  line-height: 1.6;
+}
+
+
+/* =====================================================
+   8. LISTEN DIFFERENT
+   AFBEELDING: assets/headphones3.avif
+   ===================================================== */
+
+.listen-banner {
+  position: relative;
+
+  min-height: 400px;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  padding: 50px 55px;
+
+  overflow: hidden;
+
+  background-color: #171717;
+
+  background-image:
+    linear-gradient(90deg,
+      rgba(0, 0, 0, 0.12) 0%,
+      rgba(0, 0, 0, 0.2) 48%,
+      rgba(0, 0, 0, 0.7) 100%),
+    url("assets/headphones3.avif");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+
+/* Tekst aan de rechterkant van de afbeelding. */
+.listen-banner__content {
+  position: relative;
+  z-index: 2;
+
+  width: 55%;
+
+  text-align: right;
+}
+
+
+/* Kleine labeltekst. */
+.section-label {
+  color: #888888;
+
+  font-family: "Courier New", monospace;
+
+  font-size: 8px;
+  letter-spacing: 1.5px;
+}
+
+
+/* Grote LISTEN DIFFERENT titel. */
+.listen-banner h2 {
+  margin: 18px 0;
+
+  font-family: Impact, "Arial Black", sans-serif;
+
+  font-size: clamp(3.5rem, 9vw, 7rem);
+
+  line-height: 0.88;
+
+  text-transform: uppercase;
+  font-style: italic;
+}
+
+
+/* Het woord DIFFERENT wordt limegroen. */
+.listen-banner h2 em {
+  color: var(--acid-lime);
+  font-style: italic;
+}
+
+
+/* Kleine tekst onder de titel. */
+.listen-banner__caption {
+  color: #aaaaaa;
+
+  font-family: "Courier New", monospace;
+
+  font-size: 8px;
+  letter-spacing: 1px;
+}
+
+
+/* =====================================================
+   9. BATTERY SECTION – 40 HOURS
+   ===================================================== */
+
+.battery-section {
+  padding: 70px 55px 55px;
+
+  background-color: var(--bone);
+
+  color: var(--void-black);
+}
+
+
+/* Grote 40 HOURS titel. */
+.battery-section h2 {
+  margin: 35px 0 50px;
+
+  font-family: Impact, "Arial Black", sans-serif;
+
+  font-size: clamp(7rem, 19vw, 15rem);
+
+  line-height: 0.75;
+  letter-spacing: -5px;
+
+  text-transform: uppercase;
+}
+
+
+/* Drie informatieblokken naast elkaar. */
+.battery-features {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 25px;
+}
+
+
+/* Iedere batterij-informatie. */
+.battery-feature {
+  padding-top: 15px;
+
+  border-top: 1px solid #b5b5ad;
+}
+
+
+/* Kleine nummers boven de informatie. */
+.battery-feature span {
+  color: #777777;
+
+  font-family: "Courier New", monospace;
+
+  font-size: 8px;
+  letter-spacing: 1px;
+}
+
+
+/* Titel van iedere informatie. */
+.battery-feature h3 {
+  margin: 12px 0;
+
+  font-family: Impact, "Arial Black", sans-serif;
+
+  font-size: 13px;
+  letter-spacing: 0.5px;
+}
+
+
+/* Beschrijving van de batterij-informatie. */
+.battery-feature p {
+  color: #666666;
+
+  font-size: 10px;
+  line-height: 1.5;
+}
+
+
+/* =====================================================
+   10. KLEURVARIANTEN
+   ===================================================== */
+
+.finish-section {
+  padding: 55px 35px;
+
+  background-color: var(--void-black);
+
+  color: var(--bone);
+}
+
+
+/* Bovenste informatie van de kleurensectie. */
+.finish-heading {
+  display: flex;
+  justify-content: space-between;
+
+  margin-bottom: 25px;
+
+  color: #777777;
+
+  font-family: "Courier New", monospace;
+
+  font-size: 8px;
+  letter-spacing: 1px;
+}
+
+
+/* Drie kleurkaarten naast elkaar. */
+.finish-grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 2px;
+}
+
+
+/* Algemene styling voor alle kleurkaarten. */
+.finish-card {
+  min-height: 140px;
+
+  padding: 25px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  gap: 10px;
+}
+
+
+/* Kleine aanduiding bovenaan. */
+.finish-card span {
+  font-family: "Courier New", monospace;
+
+  font-size: 7px;
+  letter-spacing: 1px;
+}
+
+
+/* Naam van de kleur. */
+.finish-card h3 {
+  font-family: Impact, "Arial Black", sans-serif;
+
+  font-size: 17px;
+  letter-spacing: 0.5px;
+}
+
+
+/* Beschrijving van de kleur. */
+.finish-card p {
+  font-size: 10px;
+}
+
+
+/* Eerste kleur: zwart. */
+.finish-card--black {
+  background-color: #080808;
+
+  border: 1px solid #333333;
+
+  color: var(--bone);
+}
+
+
+/* Tweede kleur: zilver. */
+.finish-card--silver {
+  background-color: var(--raw-silver);
+
+  color: #080808;
+}
+
+
+/* Derde kleur: bone. */
+.finish-card--bone {
+  background-color: var(--bone);
+
+  color: #080808;
+}
+
+
+/* =====================================================
+   11. AFSLUITENDE SHOP SECTIE
+   AFBEELDING: assets/headphones.avif
+   ===================================================== */
+
+.final-cta {
+  position: relative;
+
+  min-height: 430px;
+
+  padding: 65px 55px;
+
+  display: flex;
+  align-items: center;
+
+  overflow: hidden;
+
+  background-color: #050505;
+
+  background-image:
+    linear-gradient(90deg,
+      rgba(0, 0, 0, 0.9),
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.9)),
+    url("assets/headphones.avif");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+
+/* Grote achtergrondtekst achter de titel. */
+.final-cta__watermark {
+  position: absolute;
+
+  right: 0;
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  color: rgba(255, 255, 255, 0.035);
+
+  font-family: Impact, "Arial Black", sans-serif;
+
+  font-size: clamp(5rem, 16vw, 13rem);
+
+  white-space: nowrap;
+
+  pointer-events: none;
+}
+
+
+/* De tekst die boven de achtergrond staat. */
+.final-cta__content {
+  position: relative;
+  z-index: 2;
+}
+
+
+/* TURN IT UP titel. */
+.final-cta h2 {
+  margin: 20px 0;
+
+  font-family: Impact, "Arial Black", sans-serif;
+
+  font-size: clamp(5rem, 12vw, 10rem);
+
+  line-height: 0.82;
+
+  font-style: italic;
+  text-transform: uppercase;
+}
+
+
+/* Kleine tekst onder de titel. */
+.final-cta__description {
+  margin-bottom: 25px;
+
+  color: #999999;
+
+  font-family: "Courier New", monospace;
+
+  font-size: 9px;
+  letter-spacing: 1px;
+}
+
+
+/* SHOP NOW knop. */
+.final-cta__button {
+  min-width: 190px;
+
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 20px;
+
+  padding: 15px 20px;
+
+  background-color: var(--acid-lime);
+
+  color: var(--void-black);
+
+  font-size: 10px;
+  font-weight: 900;
+
+  letter-spacing: 1px;
+
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+
+/* Hover-effect op SHOP NOW. */
+.final-cta__button:hover {
+  background-color: var(--bone);
+
+  transform: translateY(-3px);
+}
+
+
+/* =====================================================
+   12. FOOTER
+   ===================================================== */
+
+.footer {
+  min-height: 75px;
+
+  padding: 20px 35px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 20px;
+
+  background-color: #050505;
+
+  border-top: 1px solid #292929;
+
+  color: #999999;
+}
+
+
+/* Footer logo. */
+.footer__logo {
+  color: var(--bone);
+
+  font-family: Impact, "Arial Black", sans-serif;
+
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+
+
+/* Footer overige teksten en links. */
+.footer p,
+.footer>a:last-child {
+  font-size: 8px;
+  letter-spacing: 1px;
+}
+
+
+/* =====================================================
+   13. TABLET VERSIE
+   SCHERMEN TOT 900 PIXELS
+   ===================================================== */
+
+@media (max-width: 900px) {
+
+  /* Header. */
+  .header {
+    padding: 0 25px;
+  }
+
+  .navbar {
+    gap: 20px;
+  }
+
+
+  /* Hero. */
+  main>section:first-child {
+    padding: 70px 30px 45px;
+
+    background-position: 65% center;
+  }
+
+  main>section:first-child h1 {
+    font-size: clamp(4rem, 11vw, 7rem);
+  }
+
+
+  /* Sound. */
+  #sound {
+    padding: 70px 30px;
+  }
+
+
+  /* Productpresentatie. */
+  .product-showcase {
+    padding: 30px;
+  }
+
+  .product-showcase__stage {
+    min-height: 350px;
+  }
+
+
+  /* Technische specificaties. */
+  .specifications {
+    padding: 35px 30px;
+  }
+
+
+  /* Listen Different. */
+  .listen-banner {
+    padding: 40px 30px;
+
+    min-height: 350px;
+  }
+
+
+  /* Battery. */
+  .battery-section {
+    padding: 60px 30px;
+  }
+
+
+  /* Kleurvarianten. */
+  .finish-section {
+    padding: 45px 25px;
+  }
+
+
+  /* Afsluitende shopsectie. */
+  .final-cta {
+    padding: 55px 30px;
+  }
+
+}
+
+
+/* =====================================================
+   14. MOBIELE VERSIE
+   SCHERMEN TOT 650 PIXELS
+   ===================================================== */
+
+@media (max-width: 650px) {
+
+  /* -----------------------------------------------------
+     HEADER EN NAVIGATIE
+     ----------------------------------------------------- */
+
+  .header {
+    height: auto;
+
+    min-height: 60px;
+
+    padding: 15px 18px;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 15px;
+  }
+
+  .navbar {
+    width: 100%;
+
+    justify-content: space-between;
+
+    gap: 10px;
+  }
+
+  .navbar a {
+    font-size: 7px;
+  }
+
+
+  /* -----------------------------------------------------
+     HERO
+     ----------------------------------------------------- */
+
+  main>section:first-child {
+    min-height: calc(100vh - 95px);
+
+    padding: 100px 20px 35px;
+
+    justify-content: flex-end;
+
+    background-position: 65% center;
+  }
+
+  main>section:first-child>p:first-child {
+    top: 20px;
+
+    right: 20px;
+
+    font-size: 6px;
+  }
+
+  main>section:first-child>p:nth-of-type(2) {
+    font-size: 7px;
+  }
+
+  main>section:first-child h1 {
+    margin-bottom: 30px;
+
+    font-size: clamp(3.8rem, 18vw, 6rem);
+
+    line-height: 0.86;
+  }
+
+  main>section:first-child>div {
+    width: 100%;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+  }
+
+  main>section:first-child>div>div p:last-child {
+    font-size: 24px;
+  }
+
+  main>section:first-child>div>a {
+    min-width: 120px;
+
+    height: 46px;
+  }
+
+
+  /* -----------------------------------------------------
+     SOUND
+     ----------------------------------------------------- */
+
+  #sound {
+    min-height: 470px;
+
+    padding: 55px 20px;
+  }
+
+  #sound h2 {
+    font-size: clamp(3.5rem, 15vw, 5.5rem);
+  }
+
+
+  /* -----------------------------------------------------
+     PRODUCT SHOWCASE
+     ----------------------------------------------------- */
+
+  .product-showcase {
+    padding: 25px 20px 35px;
+  }
+
+  .product-showcase__topline {
+    font-size: 6px;
+
+    gap: 10px;
+  }
+
+  .product-showcase__stage {
+    min-height: 310px;
+
+    background-position: center;
+  }
+
+  .product-showcase__mark {
+    font-size: 3rem;
+  }
+
+  .product-callout {
+    font-size: 6px;
+  }
+
+  .product-callout strong {
+    font-size: 7px;
+  }
+
+
+  /* -----------------------------------------------------
+     TECHNISCHE SPECIFICATIES
+     ----------------------------------------------------- */
+
+  .specifications {
+    padding: 30px 20px;
+  }
+
+  .specifications__heading {
+    font-size: 6px;
+
+    gap: 10px;
+  }
+
+  .specification-row {
+    grid-template-columns: 25px 1fr;
+
+    gap: 8px;
+
+    padding: 14px 0;
+  }
+
+  .specification-row h3 {
+    font-size: 12px;
+  }
+
+  .specification-row p {
+    grid-column: 2;
+
+    font-size: 9px;
+  }
+
+
+  /* -----------------------------------------------------
+     LISTEN DIFFERENT
+     ----------------------------------------------------- */
+
+  .listen-banner {
+    min-height: 300px;
+
+    padding: 30px 20px;
+
+    background-position: center;
+  }
+
+  .listen-banner__content {
+    width: 75%;
+  }
+
+  .listen-banner h2 {
+    font-size: clamp(3rem, 13vw, 5rem);
+  }
+
+
+  /* -----------------------------------------------------
+     BATTERY
+     ----------------------------------------------------- */
+
+  .battery-section {
+    padding: 55px 20px 40px;
+  }
+
+  .battery-section h2 {
+    font-size: clamp(6rem, 19vw, 9rem);
+
+    margin: 35px 0 45px;
+
+    letter-spacing: -3px;
+  }
+
+  .battery-features {
+    grid-template-columns: 1fr;
+
+    gap: 18px;
+  }
+
+  .battery-feature {
+    padding-top: 12px;
+  }
+
+
+  /* -----------------------------------------------------
+     KLEURVARIANTEN
+     ----------------------------------------------------- */
+
+  .finish-section {
+    padding: 35px 15px;
+  }
+
+  .finish-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .finish-card {
+    min-height: 115px;
+
+    padding: 20px;
+  }
+
+
+  /* -----------------------------------------------------
+     AFSLUITENDE SHOPSECTIE
+     ----------------------------------------------------- */
+
+  .final-cta {
+    min-height: 370px;
+
+    padding: 40px 20px;
+
+    background-position: center;
+  }
+
+  .final-cta h2 {
+    font-size: clamp(4.5rem, 18vw, 7rem);
+  }
+
+  .final-cta__watermark {
+    font-size: 5rem;
+  }
+
+
+  /* -----------------------------------------------------
+     FOOTER
+     ----------------------------------------------------- */
+
+  .footer {
+    padding: 20px;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 12px;
+  }
+
+}
