@@ -44,7 +44,8 @@ a {
    ===================================================== */
 
 .header {
-  position: relative;
+  position: sticky;
+  top: 0;
   z-index: 100;
 
   width: 100%;
@@ -120,6 +121,13 @@ a {
 /* De laatste navigatielink krijgt een lichtere kleur. */
 .navbar a:last-child {
   color: var(--bone);
+}
+
+#sound,
+#product,
+#about,
+#shop {
+  scroll-margin-top: 75px;
 }
 
 
